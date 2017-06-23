@@ -56,7 +56,7 @@ function alerm() {
         if (nowtime === starttimetemp) {
             console.log("アラーム動作");
             let temp = i + 1;
-            if (i === 4) {
+            if (i === 3) {
             } else {
                 var n = new Notification(nowtimeoutput + " になりました。" + timetable[i] + "の開始時刻です。");
                 document.getElementById("music").innerHTML = '<audio src="chime1.mp3" autoplay></audio> ';
@@ -71,7 +71,7 @@ function alerm() {
                 document.getElementById("music").innerHTML = '<audio src="chime3.mp3" autoplay></audio> ';
                 var n = new Notification(nowtimeoutput + " になりました。本日の授業はすべて終了です。");
             } else {
-                if (i === 4) {
+                if (i === 3) {
                 } else {
                     document.getElementById("music").innerHTML = '<audio src="chime2.mp3" autoplay></audio> ';
                     var n = new Notification(nowtimeoutput + " になりました。" + timetable[i] + "の終了時刻です。");
