@@ -1,0 +1,10 @@
+body{
+    background-color:lightblue
+}
+h3{
+    color: blue;
+}
+table,td,th{
+    border:solid 1px gray;
+    background-color:white;
+}
