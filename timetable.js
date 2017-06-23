@@ -58,7 +58,22 @@ function alerm() {
             let temp = i + 1;
             if (i === 4) {
             } else {
-                var n = new Notification(nowtimeoutput + " になりました。" + timetable[i] + "の開始時刻です。");
+                var userAgent = window.navigator.userAgent.toLowerCase();
+                if (userAgent.indexOf('chrome')){
+                    Push.Permission.request();
+                    Push.create(nowtimeoutput + " になりました。", {
+                        body: timetable[i] + "の開始時刻です。",
+                        icon: 'icon.jpg',
+                        timeout: 8000, // 通知が消えるタイミング
+                        vibrate: [100, 100, 100], // モバイル端末でのバイブレーション秒数
+                        onClick: function() {
+                            // 通知がクリックされた場合の設定
+                            console.log(this);
+                        }
+                    });
+                }else{
+                    var n = new Notification(nowtimeoutput + " になりました。" + timetable[i] + "の開始時刻です。");
+                }
                 document.getElementById("music").innerHTML = '<audio src="chime1.mp3" autoplay></audio> ';
             }
         }
