@@ -36,7 +36,8 @@ function clock() {
     let seconds = zero(now.getSeconds());
     nowtime = hours + "" + minutes + "" + seconds
     nowtimeoutput = hours + ":" + minutes
-    document.getElementById("clock").innerHTML = year + "年" + month + "月" + day + "日" + week + " " + hours + ":" + minutes + ":" + seconds
+    document.getElementById("clock").innerHTML = year + "年" + month + "月" + day + "日" + week + " " + hours + ":" + minutes + ":" + seconds;
+  requestAnimationFrame(clock);
 }
 function zero(num) {
     let ans
@@ -47,14 +48,14 @@ function zero(num) {
     }
     return ans;
 }
-setInterval('clock()', 1);
+clock();
 function alerm() {
-    let starttime = ["0930", "1040", "1140", "1230", "1310", "1350", "1450"]
+    let starttime = ["0930", "1040", "1140", "1230", "1310", "1350", "1450"];
     for (var i = 0; i < starttime.length; i++) {
-        let starttimetemp = starttime[i] + "00"
+        let starttimetemp = starttime[i] + "00";
         if (nowtime === starttimetemp) {
-            console.log("アラーム動作")
-            let temp = i + 1
+            console.log("アラーム動作");
+            let temp = i + 1;
             if (i === 4) {
             } else {
                 var n = new Notification(nowtimeoutput + " になりました。" + timetable[i] + "の開始時刻です。");
@@ -76,7 +77,6 @@ function alerm() {
                     var n = new Notification(nowtimeoutput + " になりました。" + timetable[i] + "の終了時刻です。");
                 }
             }
-
         }
     }
 }
